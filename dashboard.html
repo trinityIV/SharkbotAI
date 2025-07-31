@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦈 Shark Bot - Panel de Contrôle</title>
+    <meta name="description" content="Dashboard de contrôle et monitoring du Shark Bot Discord">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/glassmorphism.css">
+    <link rel="stylesheet" href="assets/css/dashboard.css">
+</head>
+<body>
+    <!-- Background Ocean Animation -->
+    <div class="ocean-background">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="shark logo.png" alt="Shark Bot" class="logo-img">
+                <span class="logo-text">Shark Bot Dashboard</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">Accueil</a></li>
+                <li><a href="#status" class="nav-link">Status</a></li>
+                <li><a href="#analytics" class="nav-link">Analytics</a></li>
+                <li><a href="#logs" class="nav-link">Logs</a></li>
+                <li><a href="#settings" class="nav-link">Paramètres</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Dashboard Header -->
+    <section class="dashboard-header">
+        <div class="container">
+            <div class="header-content">
+                <div class="bot-status-overview glass-card">
+                    <div class="status-indicator">
+                        <div class="status-dot online" id="statusDot"></div>
+                        <div class="status-info">
+                            <h2 id="botStatus">🦈 Shark Bot Online</h2>
+                            <p id="statusMessage">Tous les systèmes opérationnels</p>
+                        </div>
+                    </div>
+                    <div class="quick-stats">
+                        <div class="stat-item">
+                            <span class="stat-number" id="uptime">--</span>
+                            <span class="stat-label">Uptime</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="serverCount">--</span>
+                            <span class="stat-label">Serveurs</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number" id="userCount">--</span>
+                            <span class="stat-label">Utilisateurs</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Real-time Metrics -->
+    <section id="status" class="metrics-section">
+        <div class="container">
+            <h2 class="section-title">📊 Métriques en Temps Réel</h2>
+            
+            <div class="metrics-grid">
+                <!-- System Health -->
+                <div class="metric-card glass-card">
+                    <div class="metric-header">
+                        <h3><i class="fas fa-heartbeat"></i> Santé Système</h3>
+                        <div class="metric-status healthy" id="systemHealth">Excellent</div>
+                    </div>
+                    <div class="metric-content">
+                        <div class="health-indicators">
+                            <div class="health-item">
+                                <span class="health-label">CPU</span>
+                                <div class="health-bar">
+                                    <div class="health-fill" id="cpuUsage" style="width: 25%"></div>
+                                </div>
+                                <span class="health-value" id="cpuValue">25%</span>
+                            </div>
+                            <div class="health-item">
+                                <span class="health-label">RAM</span>
+                                <div class="health-bar">
+                                    <div class="health-fill" id="ramUsage" style="width: 45%"></div>
+                                </div>
+                                <span class="health-value" id="ramValue">45%</span>
+                            </div>
+                            <div class="health-item">
+                                <span class="health-label">Latence</span>
+                                <div class="health-bar">
+                                    <div class="health-fill good" id="latency" style="width: 15%"></div>
+                                </div>
+                                <span class="health-value" id="latencyValue">45ms</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Commands Usage -->
+                <div class="metric-card glass-card">
+                    <div class="metric-header">
+                        <h3><i class="fas fa-terminal"></i> Utilisation Commandes</h3>
+                        <div class="metric-period">Dernières 24h</div>
+                    </div>
+                    <div class="metric-content">
+                        <canvas id="commandsChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+
+                <!-- API Status -->
+                <div class="metric-card glass-card">
+                    <div class="metric-header">
+                        <h3><i class="fas fa-plug"></i> Status APIs</h3>
+                        <div class="refresh-btn" onclick="refreshAPIStatus()">
+                            <i class="fas fa-sync-alt"></i>
+                        </div>
+                    </div>
+                    <div class="metric-content">
+                        <div class="api-list">
+                            <div class="api-item">
+                                <div class="api-info">
+                                    <span class="api-name">Discord API</span>
+                                    <span class="api-endpoint">discord.com</span>
+                                </div>
+                                <div class="api-status online" id="discordAPI">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="api-item">
+                                <div class="api-info">
+                                    <span class="api-name">Cloudflare AI</span>
+                                    <span class="api-endpoint">api.cloudflare.com</span>
+                                </div>
+                                <div class="api-status online" id="cloudflareAPI">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                            <div class="api-item">
+                                <div class="api-info">
+                                    <span class="api-name">Steam API</span>
+                                    <span class="api-endpoint">api.steampowered.com</span>
+                                </div>
+                                <div class="api-status online" id="steamAPI">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Online</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity -->
+                <div class="metric-card glass-card">
+                    <div class="metric-header">
+                        <h3><i class="fas fa-history"></i> Activité Récente</h3>
+                        <div class="activity-filter">
+                            <select id="activityFilter">
+                                <option value="all">Toutes</option>
+                                <option value="commands">Commandes</option>
+                                <option value="errors">Erreurs</option>
+                                <option value="joins">Connexions</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="metric-content">
+                        <div class="activity-feed" id="activityFeed">
+                            <!-- Activity items will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Analytics Section -->
+    <section id="analytics" class="analytics-section">
+        <div class="container">
+            <h2 class="section-title">📈 Analytics Avancées</h2>
+            
+            <div class="analytics-grid">
+                <!-- Usage Trends -->
+                <div class="analytics-card glass-card">
+                    <div class="analytics-header">
+                        <h3>Tendances d'Utilisation</h3>
+                        <div class="time-selector">
+                            <button class="time-btn active" data-period="24h">24h</button>
+                            <button class="time-btn" data-period="7d">7j</button>
+                            <button class="time-btn" data-period="30d">30j</button>
+                        </div>
+                    </div>
+                    <div class="analytics-content">
+                        <canvas id="usageTrendsChart" width="800" height="300"></canvas>
+                    </div>
+                </div>
+
+                <!-- Top Commands -->
+                <div class="analytics-card glass-card">
+                    <div class="analytics-header">
+                        <h3>Top Commandes</h3>
+                        <div class="period-info">Derniers 7 jours</div>
+                    </div>
+                    <div class="analytics-content">
+                        <div class="top-commands-list">
+                            <div class="command-rank">
+                                <span class="rank">#1</span>
+                                <span class="command-name">/shark</span>
+                                <span class="command-count">1,247</span>
+                                <div class="command-bar">
+                                    <div class="command-fill" style="width: 100%"></div>
+                                </div>
+                            </div>
+                            <div class="command-rank">
+                                <span class="rank">#2</span>
+                                <span class="command-name">/image</span>
+                                <span class="command-count">892</span>
+                                <div class="command-bar">
+                                    <div class="command-fill" style="width: 72%"></div>
+                                </div>
+                            </div>
+                            <div class="command-rank">
+                                <span class="rank">#3</span>
+                                <span class="command-name">/humour</span>
+                                <span class="command-count">634</span>
+                                <div class="command-bar">
+                                    <div class="command-fill" style="width: 51%"></div>
+                                </div>
+                            </div>
+                            <div class="command-rank">
+                                <span class="rank">#4</span>
+                                <span class="command-name">/servers</span>
+                                <span class="command-count">456</span>
+                                <div class="command-bar">
+                                    <div class="command-fill" style="width: 37%"></div>
+                                </div>
+                            </div>
+                            <div class="command-rank">
+                                <span class="rank">#5</span>
+                                <span class="command-name">/gay</span>
+                                <span class="command-count">389</span>
+                                <div class="command-bar">
+                                    <div class="command-fill" style="width: 31%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Server Distribution -->
+                <div class="analytics-card glass-card">
+                    <div class="analytics-header">
+                        <h3>Distribution Serveurs</h3>
+                    </div>
+                    <div class="analytics-content">
+                        <canvas id="serverDistributionChart" width="400" height="400"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logs Section -->
+    <section id="logs" class="logs-section">
+        <div class="container">
+            <h2 class="section-title">📋 Logs Système</h2>
+            
+            <div class="logs-container glass-card">
+                <div class="logs-header">
+                    <div class="logs-controls">
+                        <select id="logLevel">
+                            <option value="all">Tous les niveaux</option>
+                            <option value="info">Info</option>
+                            <option value="warning">Warning</option>
+                            <option value="error">Error</option>
+                            <option value="debug">Debug</option>
+                        </select>
+                        <button class="btn btn-secondary" onclick="clearLogs()">
+                            <i class="fas fa-trash"></i> Vider
+                        </button>
+                        <button class="btn btn-primary" onclick="downloadLogs()">
+                            <i class="fas fa-download"></i> Télécharger
+                        </button>
+                    </div>
+                    <div class="logs-search">
+                        <input type="text" id="logSearch" placeholder="🔍 Rechercher dans les logs...">
+                    </div>
+                </div>
+                <div class="logs-content" id="logsContent">
+                    <!-- Logs will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settings" class="settings-section">
+        <div class="container">
+            <h2 class="section-title">⚙️ Paramètres Bot</h2>
+            
+            <div class="settings-grid">
+                <!-- Bot Configuration -->
+                <div class="settings-card glass-card">
+                    <div class="settings-header">
+                        <h3><i class="fas fa-cog"></i> Configuration Bot</h3>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <label for="botPrefix">Préfixe des commandes</label>
+                            <input type="text" id="botPrefix" value="/" readonly>
+                        </div>
+                        <div class="setting-item">
+                            <label for="defaultLanguage">Langue par défaut</label>
+                            <select id="defaultLanguage">
+                                <option value="fr">Français</option>
+                                <option value="en">English</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <label for="maxResponseLength">Longueur max réponse</label>
+                            <input type="number" id="maxResponseLength" value="2048" min="500" max="4000">
+                        </div>
+                        <div class="setting-item">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="nsfwEnabled" checked>
+                                <span class="checkmark"></span>
+                                Commandes NSFW activées
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI Configuration -->
+                <div class="settings-card glass-card">
+                    <div class="settings-header">
+                        <h3><i class="fas fa-brain"></i> Configuration IA</h3>
+                    </div>
+                    <div class="settings-content">
+                        <div class="setting-item">
+                            <label for="aiTemperature">Température (créativité)</label>
+                            <input type="range" id="aiTemperature" min="0" max="1" step="0.1" value="0.7">
+                            <span class="range-value">0.7</span>
+                        </div>
+                        <div class="setting-item">
+                            <label for="aiMaxTokens">Tokens maximum</label>
+                            <input type="range" id="aiMaxTokens" min="500" max="4000" step="100" value="2048">
+                            <span class="range-value">2048</span>
+                        </div>
+                        <div class="setting-item">
+                            <label class="checkbox-label">
+                                <input type="checkbox" id="uncensoredMode">
+                                <span class="checkmark"></span>
+                                Mode non censuré
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Deployment Options -->
+                <div class="settings-card glass-card">
+                    <div class="settings-header">
+                        <h3><i class="fas fa-cloud"></i> Options de Déploiement</h3>
+                    </div>
+                    <div class="settings-content">
+                        <div class="deployment-options">
+                            <div class="deployment-option">
+                                <div class="option-header">
+                                    <i class="fab fa-docker"></i>
+                                    <h4>Docker</h4>
+                                    <span class="option-status recommended">Recommandé</span>
+                                </div>
+                                <p>Déploiement complet avec toutes les fonctionnalités</p>
+                                <button class="btn btn-primary" onclick="showDockerInstructions()">
+                                    <i class="fas fa-rocket"></i> Déployer
+                                </button>
+                            </div>
+                            <div class="deployment-option">
+                                <div class="option-header">
+                                    <i class="fas fa-cloud"></i>
+                                    <h4>Cloudflare Workers</h4>
+                                    <span class="option-status limited">Limité</span>
+                                </div>
+                                <p>Bot serverless avec fonctionnalités réduites</p>
+                                <button class="btn btn-secondary" onclick="showCloudflareInstructions()">
+                                    <i class="fas fa-info-circle"></i> En savoir plus
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="shark logo.png" alt="Shark Bot" class="footer-logo">
+                    <h3>Shark Bot Dashboard</h3>
+                    <p>Monitoring et contrôle avancés</p>
+                </div>
+                <div class="footer-info">
+                    <p>Version: <span id="botVersion">2.1.0</span></p>
+                    <p>Dernière mise à jour: <span id="lastUpdate">--</span></p>
+                    <p>Développé avec 🦈 et beaucoup de café</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+    <script src="assets/js/charts.js"></script>
+</body>
+</html>

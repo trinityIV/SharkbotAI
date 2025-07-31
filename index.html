@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🦈 Shark Bot - Assistant Discord Gaming + IA</title>
+    <meta name="description" content="Bot Discord avancé avec IA, gaming, NSFW et OSINT - Shark Bot">
+    <meta name="keywords" content="Discord bot, IA, gaming, CS:GO, Steam OSINT, NSFW">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="assets/css/animations.css">
+    <link rel="stylesheet" href="assets/css/glassmorphism.css">
+</head>
+<body>
+    <!-- Background Ocean Animation -->
+    <div class="ocean-background">
+        <div class="wave wave1"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+        <div class="bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+    </div>
+
+    <!-- Swimming Sharks Animation -->
+    <div class="sharks-container">
+        <div class="shark shark-1">🦈</div>
+        <div class="shark shark-2">🦈</div>
+        <div class="shark shark-3">🦈</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar glass-nav">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <img src="../shark logo.png" alt="Shark Bot" class="logo-img">
+                <span class="logo-text">Shark Bot</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Accueil</a></li>
+                <li><a href="#features" class="nav-link">Fonctionnalités</a></li>
+                <li><a href="#commands" class="nav-link">Commandes</a></li>
+                <li><a href="#installation" class="nav-link">Installation</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="hero-title">
+                    <span class="shark-emoji">🦈</span>
+                    <span class="title-main">Shark Bot</span>
+                    <span class="title-sub">Discord Gaming Assistant</span>
+                </h1>
+                <p class="hero-description">
+                    L'assistant Discord le plus avancé avec <strong>IA</strong>, <strong>Gaming</strong>, 
+                    <strong>NSFW</strong> et <strong>OSINT</strong>. 
+                    Transformez votre serveur en aquarium high-tech !
+                </p>
+                <div class="hero-stats glass-card">
+                    <div class="stat">
+                        <span class="stat-number">11</span>
+                        <span class="stat-label">Commandes</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">APIs</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">∞</span>
+                        <span class="stat-label">Possibilités</span>
+                    </div>
+                </div>
+                <div class="hero-buttons">
+                    <a href="#installation" class="btn btn-primary">
+                        <i class="fas fa-download"></i>
+                        Installer Maintenant
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <i class="fas fa-play"></i>
+                        Voir la Démo
+                    </a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="shark-showcase glass-card">
+                    <div class="shark-large">🦈</div>
+                    <div class="tech-badges">
+                        <span class="badge">Discord.py</span>
+                        <span class="badge">Cloudflare AI</span>
+                        <span class="badge">Steam API</span>
+                        <span class="badge">Python 3.8+</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Fonctionnalités Avancées</h2>
+                <p class="section-subtitle">Un écosystème complet pour votre serveur Discord</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- AI Feature -->
+                <div class="feature-card glass-card" data-aos="fade-up">
+                    <div class="feature-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="feature-title">Intelligence Artificielle</h3>
+                    <p class="feature-description">
+                        Conversations naturelles avec mémoire contextuelle. 
+                        Réponses longues paginées et fils de discussion privés.
+                    </p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">Llama 3 8B</span>
+                        <span class="tech-tag">Cloudflare AI</span>
+                    </div>
+                </div>
+
+                <!-- Gaming Feature -->
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="feature-title">Gaming Intégré</h3>
+                    <p class="feature-description">
+                        20 serveurs CS:GO/CS2 avec IPs copiables. 
+                        Catégories HvH, Legit, Casual et Headshot Only.
+                    </p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">CS:GO</span>
+                        <span class="tech-tag">CS2</span>
+                    </div>
+                </div>
+
+                <!-- OSINT Feature -->
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-icon">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="feature-title">OSINT Steam</h3>
+                    <p class="feature-description">
+                        Analyse complète des profils Steam avec scraping et API. 
+                        Rapports détaillés générés par IA.
+                    </p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">Steam API</span>
+                        <span class="tech-tag">Web Scraping</span>
+                    </div>
+                </div>
+
+                <!-- Content Generation -->
+                <div class="feature-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-icon">
+                        <i class="fas fa-image"></i>
+                    </div>
+                    <h3 class="feature-title">Génération de Contenu</h3>
+                    <p class="feature-description">
+                        Images humoristiques, contenu NSFW sécurisé, 
+                        paroles Suno AI et humour personnalisé.
+                    </p>
+                    <div class="feature-tech">
+                        <span class="tech-tag">Stable Diffusion</span>
+                        <span class="tech-tag">NSFW Safe</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Commands Section -->
+    <section id="commands" class="commands">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">11 Commandes Puissantes</h2>
+                <p class="section-subtitle">Chaque commande est un outil professionnel</p>
+            </div>
+
+            <div class="commands-container">
+                <div class="commands-nav">
+                    <button class="cmd-nav-btn active" data-category="ai">
+                        <i class="fas fa-robot"></i>
+                        IA & Conversations
+                    </button>
+                    <button class="cmd-nav-btn" data-category="gaming">
+                        <i class="fas fa-gamepad"></i>
+                        Gaming
+                    </button>
+                    <button class="cmd-nav-btn" data-category="content">
+                        <i class="fas fa-palette"></i>
+                        Contenu
+                    </button>
+                    <button class="cmd-nav-btn" data-category="nsfw">
+                        <i class="fas fa-eye-slash"></i>
+                        NSFW
+                    </button>
+                </div>
+
+                <div class="commands-content">
+                    <!-- AI Commands -->
+                    <div class="cmd-category active" data-category="ai">
+                        <div class="cmd-grid">
+                            <div class="cmd-card glass-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/shark</span>
+                                    <span class="cmd-type">IA</span>
+                                </div>
+                                <p class="cmd-description">Conversations intelligentes avec mémoire contextuelle</p>
+                                <div class="cmd-example">
+                                    <code>/shark Explique-moi le machine learning</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Gaming Commands -->
+                    <div class="cmd-category" data-category="gaming">
+                        <div class="cmd-grid">
+                            <div class="cmd-card glass-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/servers</span>
+                                    <span class="cmd-type">Gaming</span>
+                                </div>
+                                <p class="cmd-description">20 serveurs CS:GO/CS2 avec IPs et recommandations IA</p>
+                                <div class="cmd-example">
+                                    <code>/servers hvh</code>
+                                </div>
+                            </div>
+                            <div class="cmd-card glass-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/steamosint</span>
+                                    <span class="cmd-type">OSINT</span>
+                                </div>
+                                <p class="cmd-description">Analyse complète d'un profil Steam</p>
+                                <div class="cmd-example">
+                                    <code>/steamosint https://steamcommunity.com/id/player</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Commands -->
+                    <div class="cmd-category" data-category="content">
+                        <div class="cmd-grid">
+                            <div class="cmd-card glass-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/image</span>
+                                    <span class="cmd-type">Génération</span>
+                                </div>
+                                <p class="cmd-description">Images humoristiques haute qualité</p>
+                                <div class="cmd-example">
+                                    <code>/image Un requin qui code en Python</code>
+                                </div>
+                            </div>
+                            <div class="cmd-card glass-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/humour</span>
+                                    <span class="cmd-type">Divertissement</span>
+                                </div>
+                                <p class="cmd-description">Contenu humoristique français intelligent</p>
+                                <div class="cmd-example">
+                                    <code>/humour blagues de programmeur</code>
+                                </div>
+                            </div>
+                            <div class="cmd-card glass-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/lyrics</span>
+                                    <span class="cmd-type">Musique</span>
+                                </div>
+                                <p class="cmd-description">Paroles optimisées pour Suno AI</p>
+                                <div class="cmd-example">
+                                    <code>/lyrics rock épique requin</code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- NSFW Commands -->
+                    <div class="cmd-category" data-category="nsfw">
+                        <div class="cmd-grid">
+                            <div class="cmd-card glass-card nsfw-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/nsfw</span>
+                                    <span class="cmd-type">Adulte</span>
+                                </div>
+                                <p class="cmd-description">Contenu adulte sécurisé (salon NSFW uniquement)</p>
+                                <div class="cmd-warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Salon NSFW requis
+                                </div>
+                            </div>
+                            <div class="cmd-card glass-card nsfw-card">
+                                <div class="cmd-header">
+                                    <span class="cmd-name">/nude</span>
+                                    <span class="cmd-type">Artistique</span>
+                                </div>
+                                <p class="cmd-description">Images NSFW artistiques (salon NSFW uniquement)</p>
+                                <div class="cmd-warning">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    Salon NSFW requis
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Installation Section -->
+    <section id="installation" class="installation">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Installation Ultra-Simple</h2>
+                <p class="section-subtitle">Prêt en 3 minutes avec notre script automatique</p>
+            </div>
+
+            <div class="install-steps">
+                <div class="step glass-card" data-aos="fade-right">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Télécharger</h3>
+                        <p>Clonez le repository ou téléchargez les fichiers</p>
+                        <code>git clone https://github.com/votre-repo/shark-bot</code>
+                    </div>
+                </div>
+
+                <div class="step glass-card" data-aos="fade-right" data-aos-delay="100">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Installer</h3>
+                        <p>Lancez le script d'installation automatique</p>
+                        <code>python install.py</code>
+                    </div>
+                </div>
+
+                <div class="step glass-card" data-aos="fade-right" data-aos-delay="200">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Configurer</h3>
+                        <p>Ajoutez vos tokens dans le fichier .env</p>
+                        <code>DISCORD_BOT_TOKEN=votre_token</code>
+                    </div>
+                </div>
+
+                <div class="step glass-card" data-aos="fade-right" data-aos-delay="300">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Lancer</h3>
+                        <p>Démarrez votre bot et profitez !</p>
+                        <code>python bot.py</code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="install-cta">
+                <a href="https://github.com/votre-repo/shark-bot" class="btn btn-primary btn-large">
+                    <i class="fab fa-github"></i>
+                    Télécharger sur GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer glass-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <img src="../shark logo.png" alt="Shark Bot" class="footer-logo">
+                    <h3>Shark Bot</h3>
+                    <p>L'assistant Discord le plus avancé</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-section">
+                        <h4>Liens Utiles</h4>
+                        <ul>
+                            <li><a href="#features">Fonctionnalités</a></li>
+                            <li><a href="#commands">Commandes</a></li>
+                            <li><a href="#installation">Installation</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>APIs Utilisées</h4>
+                        <ul>
+                            <li><a href="https://discord.com/developers">Discord API</a></li>
+                            <li><a href="https://developers.cloudflare.com/ai/">Cloudflare AI</a></li>
+                            <li><a href="https://steamcommunity.com/dev">Steam API</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h4>Contact</h4>
+                        <ul>
+                            <li><a href="mailto:contact@sharkbot.dev">Email</a></li>
+                            <li><a href="https://discord.gg/sharkbot">Discord</a></li>
+                            <li><a href="https://github.com/votre-repo">GitHub</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Shark Bot. Développé avec 🦈 et beaucoup de café.</p>
+                <div class="footer-sharks">
+                    <span class="footer-shark">🦈</span>
+                    <span class="footer-shark">🦈</span>
+                    <span class="footer-shark">🦈</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="assets/js/animations.js"></script>
+    <script src="assets/js/commands.js"></script>
+</body>
+</html>
